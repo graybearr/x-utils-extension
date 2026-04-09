@@ -1,7 +1,7 @@
 import { getTweetInfo } from "../utils/tweet";
 import { createMenuItem } from "../utils/menu";
 
-export function injectViewQuotesButton(menu: Element): void {
+function injectViewQuotesButton(menu: Element): void {
     if (menu.querySelector('[data-view-quote]')) return;
 
     const item = createMenuItem(menu, {
@@ -19,4 +19,22 @@ export function injectViewQuotesButton(menu: Element): void {
     });
 
     if (item) menu.appendChild(item);
+}
+
+export function initViewQuotes(cachedSettings: Record<string, boolean>): void {
+    document.addEventListener('click', (e) => {
+        if (!cachedSettings['viewquotes']) return;
+
+        const btn = (e.target as HTMLElement).closest('button') as HTMLElement | null;
+        if (!btn || !btn.matches('[data-testid="retweet"], [data-testid="unretweet"]')) return;
+
+        let tries = 0;
+        const interval = setInterval(() => {
+            tries++;
+            const menu = document.querySelector('[data-testid="Dropdown"]') || document.querySelector('[role="menu"]');
+            if (menu) { clearInterval(interval); injectViewQuotesButton(menu); }
+            if (tries > 20) clearInterval(interval);
+        }, 50);
+    }, true);
+
 }
