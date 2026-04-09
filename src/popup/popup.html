@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2 data-i18n="appName"></h2>
+        <div id="feature-list">
+            <div class="item">
+                <div class="item-text">
+                    <span class="item-title" data-i18n="viewQuotesTitle"></span>
+                    <span class="item-desc" data-i18n="viewQuotesDesc"></span>
+                </div>
+                <label class="toggle">
+                    <input type="checkbox" id="viewquotes">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="item">
+                <div class="item-text">
+                    <span class="item-title" data-i18n="fixTweetTitle"></span>
+                    <span class="item-desc" data-i18n="fixTweetDesc"></span>
+                </div>
+                <label class="toggle">
+                    <input type="checkbox" id="fixtweet">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="item accordion">
+                <div class="item-text" id="gifDownloadHeader">
+                    <div class="accordion-title">
+                        <span class="item-title" data-i18n="gifDownloadTitle"></span>
+                        <svg class="accordion-arrow" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </div>
+                    <span class="item-desc" data-i18n="gifDownloadDesc"></span>
+                </div>
+                <label class="toggle">
+                    <input type="checkbox" id="gifdownload">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="accordion-content" id="gifQualityPanel">
+                <div class="accordion-inner">
+                    <span class="item-title" data-i18n="gifQualityTitle"></span>
+                    <span class="item-desc" data-i18n="gifQualityDesc"></span>
+                    <div class="quality-buttons">
+                        <button class="quality-btn" data-quality="low" data-i18n="gifQualityLow"></button>
+                        <button class="quality-btn" data-quality="medium" data-i18n="gifQualityMedium"></button>
+                        <button class="quality-btn" data-quality="high" data-i18n="gifQualityHigh"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="https://forms.gle/LsfusJvmURhpDPrE9" target="_blank" data-i18n="feedbackBtn"></a>
+        <span>•</span>
+        <a href="https://github.com/graybearr/x-utils-extension" target="_blank">
+            <svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+            GitHub
+        </a>
+        <span id="version"></span>
+    </div>
+    <script type="module" src="popup.ts"></script>
+</body>
+</html>

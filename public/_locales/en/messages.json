@@ -1,0 +1,77 @@
+{
+    "appName": {
+        "message": "X Utils"
+    },
+    "appDescription": {
+        "message": "Add some useful features to X (Twitter)."
+    },
+    "viewQuotesTitle": {
+        "message": "Show View Quotes button"
+    },
+    "viewQuotesDesc": {
+        "message": "Display the View Quotes button when clicking the Repost button."
+    },
+    "viewQuotesBtn": {
+        "message": "View Quotes"
+    },
+    "fixTweetTitle": {
+        "message": "Show Copy FixTweet Link Button"
+    },
+    "fixTweetDesc": {
+        "message": "Display the Copy FixTweet Link button when clicking the Share button."
+    },
+    "fixTweetBtn": {
+        "message": "Copy FixTweet Link"
+    },
+    "fixTweetToast": {
+        "message": "FixTweet link copied"
+    },
+    "gifDownloadTitle": {
+        "message": "Download GIF"
+    },
+    "gifDownloadDesc": {
+        "message": "Show a download button when hovering over GIF images."
+    },
+    "gifQualityTitle": {
+        "message": "GIF Quality Settings"
+    },
+    "gifQualityDesc": {
+        "message": "Select the quality of the GIF image to download.\n- Low (320p, 8fps / Fast, Small)\n- Medium (480p, 15fps / Medium)\n- High (Original / Slow, Large)"
+    },
+    "gifQualityLow": {
+        "message": "Low"
+    },
+    "gifQualityMedium": {
+        "message": "Medium"
+    },
+    "gifQualityHigh": {
+        "message": "High"
+    },
+    "downloadVideoBtn": {
+        "message": "Download Video"
+    },
+    "downloadGifBtn": {
+        "message": "Download GIF"
+    },
+    "NoTweetIdToast": {
+        "message": "Failed to get post ID"
+    },
+    "loadFfmpegToast": {
+        "message": "Loading FFmpeg..."
+    },
+    "mp4SavedToast": {
+        "message": "Video file saved"
+    },
+    "gifConvertToast": {
+        "message": "Converting to GIF..."
+    },
+    "gifFailedToast": {
+        "message": "GIF conversion failed"
+    },
+    "gifSavedToast": {
+        "message": "GIF file saved"
+    },
+    "feedbackBtn": {
+        "message": "Send Feedback"
+    }
+}
