@@ -87,7 +87,7 @@ export function initGifDownload(cachedSettings: Record<string, boolean>): void {
 
     chrome.storage.onChanged.addListener((changes) => {
         if (!('gifdownload' in changes)) return;
-        if (!cachedSettings['gifdownload']) {
+        if (!changes['gifdownload'].newValue) {
             removeAllButtons();
         } else {
             scanAndInject();

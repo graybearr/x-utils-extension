@@ -2,7 +2,7 @@ import { getTweetInfo } from "../utils/tweet";
 import { createMenuItem } from "../utils/menu";
 import { showToast } from "../utils/toast";
 
-export function injectFixTweetButton(menu: Element): void {
+function injectFixTweetButton(menu: Element): void {
     if (menu.querySelector('[data-fixtweet]')) return;
     const items = menu.querySelectorAll('[role="menuitem"]');
     if (items.length < 1) return;
@@ -27,4 +27,22 @@ export function injectFixTweetButton(menu: Element): void {
             ? menu.insertBefore(item, items[1])
             : menu.appendChild(item);
     }
+}
+
+export function initFixTweet(cachedSettings: Record<string, boolean>): void {
+    document.addEventListener('click', (e) => {
+        if (!cachedSettings['fixtweet']) return;
+
+        const btn = (e.target as HTMLElement).closest('button') as HTMLElement | null;
+        if (!btn || !btn.querySelector('path[d^="M12 2.59"]')) return;
+
+        let tries = 0;
+        const interval = setInterval(() => {
+            tries++;
+            const menu = document.querySelector('[data-testid="Dropdown"]') || document.querySelector('[role="menu"]');
+            if (menu) { clearInterval(interval); injectFixTweetButton(menu); }
+            if (tries > 20) clearInterval(interval);
+        }, 50);
+    }, true);
+
 }
