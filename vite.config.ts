@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import { crx } from '@crxjs/vite-plugin';
 import manifest from './manifest.json';
-import { copyFileSync, mkdirSync } from 'fs';
+import { copyFileSync, mkdirSync, rmSync } from 'fs';
 import { resolve } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -30,6 +30,7 @@ export default defineConfig(({ mode }) => ({
                 for (const file of ['ffmpeg-core.js', 'ffmpeg-core.wasm']) {
                     copyFileSync(resolve(src, file), resolve(dest, file));
                 }
+                rmSync(resolve(__dirname, 'dist/.vite'), { recursive: true, force: true });
             }
         }
     ]
