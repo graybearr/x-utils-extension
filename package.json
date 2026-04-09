@@ -1,0 +1,25 @@
+{
+  "name": "x-utils-extension",
+  "version": "1.3.0",
+  "scripts": {
+    "dev": "vite build --watch --mode development",
+    "build": "vite build",
+    "typecheck": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPL-3.0",
+  "description": "",
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.0.0-beta.33",
+    "@types/chrome": "^0.1.39",
+    "@types/node": "^25.5.2",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.4"
+  },
+  "dependencies": {
+    "@ffmpeg/core": "^0.12.10",
+    "@ffmpeg/ffmpeg": "^0.12.15",
+    "@ffmpeg/util": "^0.12.2"
+  }
+}

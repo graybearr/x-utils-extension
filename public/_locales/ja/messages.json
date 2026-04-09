@@ -1,0 +1,77 @@
+{
+    "appName": {
+        "message": "X Utils"
+    },
+    "appDescription": {
+        "message": "X（Twitter）に便利な機能を追加します。"
+    },
+    "viewQuotesTitle": {
+        "message": "引用を表示ボタンを表示"
+    },
+    "viewQuotesDesc": {
+        "message": "再投稿ボタンをクリックした際に、引用を表示ボタンを表示します。"
+    },
+    "viewQuotesBtn": {
+        "message": "引用を表示"
+    },
+    "fixTweetTitle": {
+        "message": "FixTweetリンクをコピーボタンを表示"
+    },
+    "fixTweetDesc": {
+        "message": "共有ボタンをクリックした際に、FixTweetリンクのコピーボタンを表示します。"
+    },
+    "fixTweetBtn": {
+        "message": "FixTweetリンクをコピー"
+    },
+    "fixTweetToast": {
+        "message": "FixTweetリンクをコピーしました"
+    },
+    "gifDownloadTitle": {
+        "message": "GIFダウンロード"
+    },
+    "gifDownloadDesc": {
+        "message": "GIF画像にカーソルを合わせるとダウンロードボタンを表示します。"
+    },
+    "gifQualityTitle": {
+        "message": "ダウンロード品質"
+    },
+    "gifQualityDesc": {
+        "message": "ダウンロードするGIF画像の品質を選択します。\n- 低（320p, 8fps / 速い、低容量）\n- 中（480p, 15fps / 中間）\n- 高（オリジナル / 遅い、大容量）"
+    },
+    "gifQualityLow": {
+        "message": "低"
+    },
+    "gifQualityMedium": {
+        "message": "中"
+    },
+    "gifQualityHigh": {
+        "message": "高"
+    },
+    "downloadVideoBtn": {
+        "message": "動画をダウンロード"
+    },
+    "downloadGifBtn": {
+        "message": "GIFをダウンロード"
+    },
+    "NoTweetIdToast": {
+        "message": "投稿ID取得エラー"
+    },
+    "loadFfmpegToast": {
+        "message": "FFmpegをロード中..."
+    },
+    "mp4SavedToast": {
+        "message": "動画ファイルを保存しました"
+    },
+    "gifConvertToast": {
+        "message": "GIFに変換中..."
+    },
+    "gifFailedToast": {
+        "message": "GIF変換失敗"
+    },
+    "gifSavedToast": {
+        "message": "GIFファイルを保存しました"
+    },
+    "feedbackBtn": {
+        "message": "フィードバックを送信"
+    }
+}
