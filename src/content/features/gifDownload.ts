@@ -3,7 +3,7 @@ import { downloadMp4, downloadGif } from '../utils/download';
 import { getTweetIdFromArticle } from '../utils/tweet';
 import { showToast } from '../utils/toast';
 
-function injectDownloadButton(container: Element): void {
+function injectDownloadButton(container: Element, position: 'top' | 'bottom' = 'top'): void {
     if (container.querySelector(`[data-gif-download]`)) return;
 
     const videoEl = container.querySelector('video');
@@ -18,7 +18,7 @@ function injectDownloadButton(container: Element): void {
     `;
     btn.style.cssText = `
         position: absolute;
-        top: 8px;
+        ${position === 'bottom' ? 'bottom' : 'top'}: 8px;
         right: 8px;
         background: rgba(0, 0, 0, 0.6);
         backdrop-filter: blur(4px);
@@ -43,7 +43,9 @@ function injectDownloadButton(container: Element): void {
         e.stopPropagation();
         e.preventDefault();
         const article = container.closest('article');
-        const tweetId = article ? getTweetIdFromArticle(article) : null;
+        const tweetId = article
+            ? getTweetIdFromArticle(article)
+            : location.pathname.match(/\/status\/(\d+)/)?.[1] ?? null;
         if (!tweetId) {
             showToast(chrome.i18n.getMessage('NoTweetIdToast'));
             return;
@@ -59,17 +61,28 @@ function injectDownloadButton(container: Element): void {
 }
 
 function scanAndInject(): void {
-    const gifContainers = document.querySelectorAll('[data-testid="tweetPhoto"]');
+    document.querySelectorAll('span').forEach(span => {
+        if (span.textContent?.trim() !== 'GIF') return;
 
-    gifContainers.forEach(container => {
+        const tweetPhoto = span.closest('[data-testid="tweetPhoto"]');
+        if (tweetPhoto) {
+            if (!tweetPhoto.querySelector('[data-gif-download]')) {
+                injectDownloadButton(tweetPhoto, 'top');
+            }
+            return;
+        }
+
+        if (!span.closest('[role="dialog"]')) return;
+
+        let container: Element | null = span.parentElement;
+        while (container) {
+            if (container.querySelector('video')) break;
+            container = container.parentElement;
+        }
+        if (!container || container === document.body) return;
         if (container.querySelector('[data-gif-download]')) return;
 
-        const hasGifLabel = Array.from(container.querySelectorAll('span'))
-            .some(span => span.textContent?.trim() === 'GIF');
-
-        if (hasGifLabel) {
-            injectDownloadButton(container);
-        }
+        injectDownloadButton(container, 'bottom');
     });
 }
 
