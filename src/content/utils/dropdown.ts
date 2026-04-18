@@ -7,15 +7,17 @@ export function showDropdown(
 
     const dropdown = document.createElement('div');
     dropdown.setAttribute('data-xutils-dropdown', 'true');
+    const rect = anchor.getBoundingClientRect();
     dropdown.style.cssText = `
-        position: absolute;
-        top: 44px;
-        right: 8px;
+        position: fixed;
+        top: ${rect.bottom + 4}px;
+        left: ${rect.left + rect.width / 2}px;
+        transform: translateX(-50%);
         background: rgba(0, 0, 0, 0.85);
         backdrop-filter: blur(12px);
         border-radius: 12px;
         overflow: hidden;
-        z-index: 100;
+        z-index: 99999;
         width: max-content;
         min-width: 120px;
         max-width: 280px;
@@ -44,9 +46,20 @@ export function showDropdown(
         dropdown.appendChild(item);
     });
 
-    anchor.appendChild(dropdown);
+    document.body.appendChild(dropdown);
+
+    function closeDropdown() {
+        if (!dropdown.isConnected) return;
+        dropdown.remove();
+        anchorObserver.disconnect();
+    }
+
+    const anchorObserver = new MutationObserver(() => {
+        if (!anchor.isConnected) closeDropdown();
+    });
+    anchorObserver.observe(anchor.parentElement ?? document.body, { childList: true });
 
     setTimeout(() => {
-        document.addEventListener('click', () => dropdown.remove(), { once: true });
+        document.addEventListener('click', closeDropdown, { once: true });
     }, 0);
 }
